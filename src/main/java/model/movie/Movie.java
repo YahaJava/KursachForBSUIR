@@ -16,10 +16,13 @@ public class Movie {
 
     @Column(name = "name")
     private String name;
-/*
+
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.PERSIST,
+                            CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "director_id")
     private Director director;
 
-    private List<Actor> actors;*/
+    /* private List<Actor> actors;*/
 
     @Column(name = "genre")
     private String genre;
@@ -42,18 +45,6 @@ public class Movie {
     @Column(name = "inRent")
     private boolean inRent;
 
-    public Movie(String name, Director director, List<Actor> actors, String genre, String country, int year, String budget, String description, String posterURL, boolean inRent) {
-        this.name = name;
-       /* this.director = director;
-        this.actors = actors;*/
-        this.genre = genre;
-        this.country = country;
-        this.year = year;
-        this.budget = budget;
-        this.description = description;
-        this.posterURL = posterURL;
-        this.inRent = inRent;
-    }
 
     public Movie() {
     }
@@ -62,87 +53,80 @@ public class Movie {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-   /* public Director getDirector() {
-        return director;
-    }
-
-    public List<Actor> getActors() {
-        return actors;
-    }*/
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getBudget() {
-        return budget;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getPosterURL() {
-        return posterURL;
-    }
-
-    public boolean isInRent() {
-        return inRent;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-   /* public void setDirector(Director director) {
+    public Director getDirector() {
+        return director;
+    }
+
+    public void setDirector(Director director) {
         this.director = director;
     }
 
-    public void setActors(List<Actor> actors) {
-        this.actors = actors;
-    }*/
+    public String getGenre() {
+        return genre;
+    }
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public String getCountry() {
+        return country;
     }
 
     public void setCountry(String country) {
         this.country = country;
     }
 
+    public int getYear() {
+        return year;
+    }
+
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public String getBudget() {
+        return budget;
     }
 
     public void setBudget(String budget) {
         this.budget = budget;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPosterURL() {
+        return posterURL;
     }
 
     public void setPosterURL(String posterURL) {
         this.posterURL = posterURL;
     }
 
+    public boolean isInRent() {
+        return inRent;
+    }
+
     public void setInRent(boolean inRent) {
         this.inRent = inRent;
     }
+
 }
