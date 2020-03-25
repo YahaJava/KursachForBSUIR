@@ -18,3 +18,21 @@
 .info-item{
 
 }
+
+.seat-empty
+{
+    background-image: url("https://cdn.imgbin.com/1/13/13/imgbin-computer-icons-seat-couch-seat-PvPFKRbg8X53BZvthjqD8XXAa.jpg");
+    margin: 2px;
+}
+
+
+.seat-choisen
+{
+
+}
+
+
+.seat-invalid
+{
+
+}

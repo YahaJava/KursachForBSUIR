@@ -25,7 +25,7 @@ public class DBMovieDAO implements MovieDAO {
 
 
     @Override
-    public List<Movie> getMoviesInRent() throws SQLException {
+    public List<Movie> getMoviesInRent() {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Movie.class)

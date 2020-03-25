@@ -1,24 +1,22 @@
-package model.director;
+package model.actor;
 
-import model.movie.Movie;
+import model.director.Director;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class DBDirectorDAO implements DirectorDAO {
-
-
+public class DBActorDAO implements ActorDAO {
     @Override
-    public Director getDirectorOnId(int id) {
+    public Actor getActorOnId(int id) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Director.class)
                 .buildSessionFactory();
         Session session = factory.getCurrentSession();
         session.beginTransaction();
-        Director director = session.get(Director.class, id);
+        Actor actor = session.get(Actor.class, id);
         session.getTransaction().commit();
         factory.close();
-        return director;
+        return actor;
     }
 }

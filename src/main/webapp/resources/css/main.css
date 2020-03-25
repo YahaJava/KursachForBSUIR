@@ -1,0 +1,12 @@
+.main-container {
+    margin: 70px 150px 50px 150px ;
+}
+
+.link {
+    color: #17A1B7;
+}
+
+.link:hover {
+    color: red;
+    text-decoration: none;
+}

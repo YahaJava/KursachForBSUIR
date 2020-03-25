@@ -17,12 +17,15 @@ public class Movie {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.PERSIST,
-                            CascadeType.MERGE, CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "director_id")
     private Director director;
 
-    /* private List<Actor> actors;*/
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "Actors_in_Movies",
+            joinColumns = @JoinColumn(name ="id_movie"),
+            inverseJoinColumns = @JoinColumn(name="id_actor"))
+    private List<Actor> actors;
 
     @Column(name = "genre")
     private String genre;
@@ -129,4 +132,11 @@ public class Movie {
         this.inRent = inRent;
     }
 
+    public List<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
+    }
 }

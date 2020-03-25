@@ -1,5 +1,8 @@
 package controller;
 
+import model.actor.Actor;
+import model.actor.ActorDAO;
+import model.actor.DBActorDAO;
 import model.director.DBDirectorDAO;
 import model.director.Director;
 import model.director.DirectorDAO;
@@ -12,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class MainPageController {
@@ -36,6 +41,9 @@ public class MainPageController {
         String url = request.getRequestURL().toString();
         int id = getId(url);
         Movie movie = movieDAO.getMovieOnId(id);
+        if(movie==null){
+            return "404-error";
+        }
         model.addAttribute("movie",movie);
         return "moviePage";
     }
@@ -46,7 +54,23 @@ public class MainPageController {
         String url = request.getRequestURL().toString();
         int id = getId(url);
         Director director = directorDAO.getDirectorOnId(id);
-        model.addAttribute("director",director);
+        if(director==null){
+            return "404-error";
+        }
+        model.addAttribute("man",director);
+        return "manPage";
+    }
+
+    @RequestMapping("/actor/*")
+    public String makeActorPage(Model model, HttpServletRequest request) {
+        ActorDAO actorDAO = new DBActorDAO();
+        String url = request.getRequestURL().toString();
+        int id = getId(url);
+        Actor actor = actorDAO.getActorOnId(id);
+        if(actor==null){
+            return "404-error";
+        }
+        model.addAttribute("man",actor);
         return "manPage";
     }
 

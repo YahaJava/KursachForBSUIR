@@ -1,0 +1,26 @@
+.header-container {
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #242424;
+}
+.header-button {
+    text-align: center;
+    font-weight: 500;
+    width: 10%;
+    height: 45px;
+    border-color: white;
+    border-width: 3px;
+}
+.link-header{
+    color: white;
+}
+
+.link-header:hover {
+    color: red;
+    text-decoration: none;
+}
+

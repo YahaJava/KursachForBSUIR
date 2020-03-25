@@ -4,6 +4,7 @@ import model.movie.Movie;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Directors")
@@ -32,8 +33,8 @@ public class Director{
     private String photo;
 
     @OneToMany(mappedBy = "director", cascade = {CascadeType.DETACH, CascadeType.PERSIST,
-            CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.EAGER)
-    private List<Movie> movies;
+            CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    private Set<Movie> movies;
 
     public Director() {
     }
@@ -94,11 +95,11 @@ public class Director{
         this.photo = photo;
     }
 
-    public List<Movie> getMovies() {
+    public Set<Movie> getMovies() {
         return movies;
     }
 
-    public void setMovies(List<Movie> movies) {
+    public void setMovies(Set<Movie> movies) {
         this.movies = movies;
     }
 
