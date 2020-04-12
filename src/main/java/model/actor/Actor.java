@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Actors")
@@ -37,7 +38,7 @@ public class Actor implements Serializable {
     @JoinTable(name = "Actors_in_Movies",
                 joinColumns = @JoinColumn(name ="id_actor" ),
                 inverseJoinColumns = @JoinColumn(name="id_movie"))
-    private List<Movie> movies;
+    private Set<Movie> movies;
 
     public Actor() {}
 
@@ -97,12 +98,11 @@ public class Actor implements Serializable {
         this.photo = photo;
     }
 
-
-    public Collection<Movie> getMovies() {
+    public Set<Movie> getMovies() {
         return movies;
     }
 
-    public void setMovies(List<Movie> movies) {
+    public void setMovies(Set<Movie> movies) {
         this.movies = movies;
     }
 }

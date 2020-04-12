@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/moviePage.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/poster.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/buyPage.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -34,7 +35,7 @@
                         <button class="btn btn-outline-info my-2 my-sm-0 mr-5" type="submit">Search</button>--%>
                     <button class="btn btn-outline-success my-2 my-sm-0 mr-1" type="submit">Вход</button>
                 </form>
-                <form class="my-2 my-lg-0">
+                <form class="my-2 my-lg-0" action="${pageContext.servletContext.contextPath}/registration">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Регистрация</button>
                 </form>
             </div>
@@ -56,10 +57,7 @@
                                 <input style="padding: 5px" class="logout-button" type="submit" value="Выйти из аккаунта"/>
                             </form:form>
                         </div>
-
-
                     </div>
-
                 </div>
             </div>
         </sec:authorize>

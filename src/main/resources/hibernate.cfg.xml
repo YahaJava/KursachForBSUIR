@@ -28,6 +28,9 @@
     <mapping class="model.director.Director" />
     <mapping class="model.movie.Movie" />
     <mapping class="model.actor.Actor" />
+    <mapping class="model.schedule.Schedule" />
+    <mapping class="model.order.Order" />
+    <mapping class="model.user.User" />
 </session-factory>
 
 </hibernate-configuration>

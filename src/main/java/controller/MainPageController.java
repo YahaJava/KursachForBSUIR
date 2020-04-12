@@ -9,6 +9,8 @@ import model.director.DirectorDAO;
 import model.movie.DBMovieDAO;
 import model.movie.Movie;
 import model.movie.MovieDAO;
+import model.user.UserDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,12 @@ import java.util.Set;
 @Controller
 public class MainPageController {
 
+    @Autowired
+    private UserDAO userDAO;
+
+    @Autowired
+    private MovieDAO movieDAO;
+
     @RequestMapping("/")
     public String makeHomePage() {
         return "homePage";
@@ -29,7 +37,6 @@ public class MainPageController {
 
     @RequestMapping("/poster")
     public String makeAllMoviesPage(Model model) throws SQLException {
-        MovieDAO movieDAO = new DBMovieDAO();
         List<Movie> movies = movieDAO.getMoviesInRent();
         model.addAttribute("movies", movies);
         return "poster";
@@ -37,7 +44,6 @@ public class MainPageController {
 
     @RequestMapping("/film/*")
     public String makeMoviePage(Model model, HttpServletRequest request) {
-        MovieDAO movieDAO = new DBMovieDAO();
         String url = request.getRequestURL().toString();
         int id = getId(url);
         Movie movie = movieDAO.getMovieOnId(id);
@@ -47,6 +53,7 @@ public class MainPageController {
         model.addAttribute("movie",movie);
         return "moviePage";
     }
+
 
     @RequestMapping("/director/*")
     public String makeDirectorPage(Model model, HttpServletRequest request) {

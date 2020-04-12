@@ -2,11 +2,13 @@ package model.movie;
 
 
 import model.actor.Actor;
-import model.db.DataBase;
 import model.director.Director;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,42 +18,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Repository
+@Transactional
 public class DBMovieDAO implements MovieDAO {
-    private Connection connection;
 
-   /* public DBMovieDAO() throws SQLException {
-            connection= DataBase.getInstance().getConnection();
-    }*/
-
+    @Autowired
+    private SessionFactory sessionFactory;
 
     @Override
     public List<Movie> getMoviesInRent() {
-        SessionFactory factory = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Movie.class)
-                .buildSessionFactory();
-        Session session = factory.getCurrentSession();
-        session.beginTransaction();
-        List<Movie> movies = session.createQuery("from Movie m where m.inRent=true").list();
-        session.getTransaction().commit();
-        factory.close();
-        return movies;
+        return sessionFactory.getCurrentSession().createQuery("from Movie m where m.inRent=true").list();
     }
 
     @Override
     public Movie getMovieOnId(int id) {
-        SessionFactory factory = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Movie.class)
-                .buildSessionFactory();
-        Session session = factory.getCurrentSession();
-        session.beginTransaction();
-        Movie movie = session.get(Movie.class, id);
-        session.getTransaction().commit();
-        factory.close();
-        return movie;
+        return sessionFactory.getCurrentSession().get(Movie.class,id);
     }
-
 
 
     @Override
@@ -82,13 +64,7 @@ public class DBMovieDAO implements MovieDAO {
 
     @Override
     public void updateRent(ArrayList<String> list1, ArrayList<String> list2) throws SQLException {
-        Statement stmt = connection.createStatement();
-        for (String str : list1) {
-            stmt.execute("UPDATE Movies SET inRent='1' where name ='" + str + "'");
-        }
-        for (String str : list2) {
-            stmt.execute("UPDATE Movies SET inRent='0' where name ='" + str + "'");
-        }
+
     }
 
 

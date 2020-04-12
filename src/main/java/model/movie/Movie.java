@@ -2,9 +2,11 @@ package model.movie;
 
 import model.actor.Actor;
 import model.director.Director;
+import model.schedule.Schedule;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Movies")
@@ -25,7 +27,7 @@ public class Movie {
     @JoinTable(name = "Actors_in_Movies",
             joinColumns = @JoinColumn(name ="id_movie"),
             inverseJoinColumns = @JoinColumn(name="id_actor"))
-    private List<Actor> actors;
+    private Set<Actor> actors;
 
     @Column(name = "genre")
     private String genre;
@@ -48,6 +50,9 @@ public class Movie {
     @Column(name = "inRent")
     private boolean inRent;
 
+    @OneToMany(mappedBy = "movie", cascade = {CascadeType.DETACH, CascadeType.PERSIST,
+            CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    private Set<Schedule> schedule;
 
     public Movie() {
     }
@@ -132,11 +137,19 @@ public class Movie {
         this.inRent = inRent;
     }
 
-    public List<Actor> getActors() {
+    public Set<Actor> getActors() {
         return actors;
     }
 
-    public void setActors(List<Actor> actors) {
+    public void setActors(Set<Actor> actors) {
         this.actors = actors;
+    }
+
+    public Set<Schedule> getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Set<Schedule> schedule) {
+        this.schedule = schedule;
     }
 }

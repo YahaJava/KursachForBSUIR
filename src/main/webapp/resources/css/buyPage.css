@@ -1,0 +1,89 @@
+.buy-ticket-container {
+    display: flex;
+}
+
+.buy-ticket-info-container {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.buy-ticket {
+    font-size: 18px;
+    font-weight: bolder;
+
+}
+
+.price {
+    font-style: italic;
+    font-size: 13px;
+    color: #A7A7A7;
+}
+
+.buy-ticket-selected-info {
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.choose {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.full-date-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.date-container {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.date {
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: left;
+    color: #A5A5A5;
+}
+
+.time-container {
+    display: flex;
+}
+
+.time {
+    color: white;
+    font-size: 18px;
+    margin: 10px;
+    padding: 5px 25px;
+    background: #17A1B7;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.time:hover {
+    color: black;
+    background: #C2E7FC;
+}
+
+
+.seat {
+    margin-left: 10px;
+    margin-bottom: 2px ;
+    min-width: 32px;
+    min-height: 32px;
+    cursor: pointer;
+    background-image: url("../images/seat.png");
+}
+
+.seat-invalid {
+    margin-left: 10px;
+    margin-bottom: 2px ;
+    min-width: 32px;
+    min-height: 32px;
+    background-image: url("../images/invalid-seat.png");
+}

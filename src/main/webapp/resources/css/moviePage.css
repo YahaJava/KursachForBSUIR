@@ -1,38 +1,58 @@
-.container-film{
-    margin: 30px 0 0 100px;
+
+
+img {
+
+}
+
+.container {
     display: flex;
     justify-content: space-between;
-    width:40%;
+    align-items: flex-start;
 }
-.info{
-    color: #b21f2d;
+
+.image-container {
+    width: 25%;
+    margin-left: -50px;
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
 }
-.title {
-    font-size: 18px;
-    font-weight: 600;
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    font-size: 16px;
 }
 
-.info-item{
-
+.name {
+    font-size: 24px;
 }
 
-.seat-empty
-{
-    background-image: url("https://cdn.imgbin.com/1/13/13/imgbin-computer-icons-seat-couch-seat-PvPFKRbg8X53BZvthjqD8XXAa.jpg");
-    margin: 2px;
-}
-
-
-.seat-choisen
-{
+.genre {
 
 }
 
+.director {
 
-.seat-invalid
-{
+}
 
+.year {
+
+}
+
+.budget {
+
+}
+
+.actors {
+
+}
+
+.description {
+  text-align: justify       ;
+}
+
+
+b {
+    color: #17A1B7;
 }
