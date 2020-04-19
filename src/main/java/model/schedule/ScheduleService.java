@@ -1,5 +1,6 @@
 package model.schedule;
 
+import tools.DateService;
 import tools.ScheduleForView;
 
 import java.text.DateFormat;
@@ -11,10 +12,12 @@ import java.util.stream.Collectors;
 
 public class ScheduleService {
 
+    private DateService dateService = new DateService();
+
     public List<ScheduleForView> filter(List<Schedule> schedule) {
-        long currentDate = getCurrentDate();
+        long currentDate = dateService.getCurrentDate();
         schedule = schedule.stream().filter(schedule1 -> {
-            long date = getIntDate(schedule1.getDay() + " " + schedule1.getTime());
+            long date = dateService.getIntDate(schedule1.getDay() + " " + schedule1.getTime());
             return date > currentDate;
         }).collect(Collectors.toList());
         return getScheduleForView(schedule);
@@ -45,23 +48,6 @@ public class ScheduleService {
         return scheduleForView;
     }
 
-    private long getIntDate(String stringDate) {
-        Date date;
-        DateFormat formatter = new SimpleDateFormat("dd.MM.yy HH:mm");
-        try {
-            date = formatter.parse(stringDate);
-            return date.getTime();
 
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return 0;
-        }
-    }
-
-
-    private long getCurrentDate() {
-        Date date = new Date();
-        return date.getTime();
-    }
 
 }

@@ -31,6 +31,9 @@ public class Order  {
     @Column(name = "seat")
     private String seat;
 
+    @Column(name = "status")
+    private String status;
+
     public Order() {
 
     }
@@ -81,5 +84,13 @@ public class Order  {
 
     public void setSeat(String seat) {
         this.seat = seat;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -32,12 +33,25 @@ public class AuthenticationController {
     @RequestMapping("/confirm")
     public String addClient(@Valid @ModelAttribute("user")
                                         User user,
-                            BindingResult bindingResult) {
+                            BindingResult bindingResult, Model model) {
+
         if (bindingResult.hasErrors()) {
+            System.out.println("errors");
             return "registerPage";
         }
-        userDAO.addUser(user);
-        return "redirect:/";
+        if (!user.getPassword().equals(user.getPasswordRepeat())) {
+            model.addAttribute("passwordMismatch",true);
+            return "registerPage";
+        }
+        try{
+            userDAO.addUser(user);
+            return "redirect:/";
+
+        }
+        catch (Exception e) {
+            model.addAttribute("loginExist",true);
+            return "registerPage";
+        }
     }
 
 }

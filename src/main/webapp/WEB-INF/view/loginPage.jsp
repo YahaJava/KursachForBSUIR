@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Login</title>
+    <title>Вход</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
@@ -20,7 +20,7 @@
 
 
 </head>
-<body>
+<body style="background-image: url('https://images.wallpaperscraft.ru/image/fon_nerovnosti_svet_86951_1920x1080.jpg')">
 <div >
     <div id="loginbox" class = "w-25" style="margin: 200px 400px 0 550px;"
          class="mainbox col-md-3 col-md-offset-2 col-sm-6 col-sm-offset-2">

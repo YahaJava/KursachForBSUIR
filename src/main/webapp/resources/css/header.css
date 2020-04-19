@@ -4,12 +4,12 @@
     justify-content: space-around;
     align-items: center;
     height: 60px;
-    border-radius: 10px;
-    background-color: #242424;
+    background-color: #4C4C4C;
 }
 .header-button {
     text-align: center;
     font-weight: 500;
+    font-size: 18px;
     width: 10%;
     border-color: white;
     border-width: 3px;
