@@ -1,7 +1,7 @@
 ﻿<link href="https://fonts.googleapis.com/css?family=Roboto:500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/moviePage.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/infoPage.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/poster.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/buyPage.css">

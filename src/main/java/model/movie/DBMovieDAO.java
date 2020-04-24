@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @Transactional
 public class DBMovieDAO implements MovieDAO {
 
+
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -33,6 +34,11 @@ public class DBMovieDAO implements MovieDAO {
     @Override
     public Movie getMovieOnId(int id) {
         return sessionFactory.getCurrentSession().get(Movie.class,id);
+    }
+
+    @Override
+    public List<Movie> getMoviesOnMainPage() {
+        return sessionFactory.getCurrentSession().createQuery("from Movie m where m.posterOnMainPage!=''").list();
     }
 
 

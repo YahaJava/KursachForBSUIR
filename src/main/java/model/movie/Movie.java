@@ -50,6 +50,9 @@ public class Movie {
     @Column(name = "inRent")
     private boolean inRent;
 
+    @Column(name = "posterOnMainPage")
+    private String posterOnMainPage;
+
     @OneToMany(mappedBy = "movie", cascade = {CascadeType.DETACH, CascadeType.PERSIST,
             CascadeType.REFRESH}, fetch = FetchType.EAGER)
     private Set<Schedule> schedule;
@@ -151,5 +154,13 @@ public class Movie {
 
     public void setSchedule(Set<Schedule> schedule) {
         this.schedule = schedule;
+    }
+
+    public String getPosterOnMainPage() {
+        return posterOnMainPage;
+    }
+
+    public void setPosterOnMainPage(String posterOnMainPage) {
+        this.posterOnMainPage = posterOnMainPage;
     }
 }

@@ -22,9 +22,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Controller
 public class MainPageController {
@@ -38,7 +40,9 @@ public class MainPageController {
     private OrderService orderService = new OrderService();
 
     @RequestMapping("/")
-    public String makeHomePage() {
+    public String makeHomePage(Model model) throws SQLException {
+        List<Movie> mainMovies = movieDAO.getMoviesOnMainPage();
+        model.addAttribute("mainMovies", mainMovies);
         return "homePage";
     }
 

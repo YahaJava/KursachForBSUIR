@@ -2,19 +2,40 @@
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <tags:master pageTitle="${man.name}">
-    <div class="container-film">
-        <div>  <img src="${man.photo}" height="400px"> </div>
-        <div class = "info">
-            <div class="title">${man.name} ${man.surname}</div>
-            <div class="info-item">Карьера: ${man.career} </div>
-            <div class="info-item">Место рождения: ${man.birthPlace} </div>
-            <div class="info-item">Год рождения: ${man.birthDate} </div>
+
+    <div>
+        <div class="container">
+            <div class="image-container">
+                <img src="${man.photo}" style="width:250px; height:350px">
+            </div>
+            <div class="info-container">
+                <div class="name">
+                    <p><b>${man.name} ${man.surname}</b></p>
+                </div>
+                <div class="genre">
+                    <p><b>Карьера:</b> ${man.career}</p>
+                </div>
+                <div class="year">
+                    <p><b>Место рождения:</b> ${man.birthPlace}</p>
+                </div>
+                <div>
+                    <p><b>Год рождения: </b> ${man.birthDate}</p>
+                </div>
+            </div>
+        </div><br>
+        <hr>
+        <h3 align="center">Фильмы:</h3>
+        <div class="row">
+            <c:forEach var="movie" items="${man.movies}">
+                <a href="<c:url value="/film/${movie.id}"/>">
+                    <div style="margin: 10px; display: flex; flex-direction: column; width: 170px">
+                        <img src="${movie.posterURL}" height="250px"><br>
+                        <p>${movie.name}</p>
+                    </div>
+                </a>
+            </c:forEach>
         </div>
-    </div><br>
-  <c:forEach var="movie" items="${man.movies}">
-        <a href="<c:url value="/film/${movie.id}"/>">
-            <img src="${movie.posterURL}" height="250px"><br>
-            <p>${movie.name}</p>
-        </a>
-  </c:forEach>
+
+    </div>
+
 </tags:master>

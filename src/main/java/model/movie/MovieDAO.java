@@ -10,6 +10,7 @@ import java.util.List;
 public interface MovieDAO {
     List<Movie> getMoviesInRent() throws SQLException;
     Movie getMovieOnId(int id);
+    List getMoviesOnMainPage();
     List<Movie> getMoviesInNoneRent() throws SQLException;
     List<Movie> getAllMovies() throws SQLException;
     List<Movie> getMoviesOnActors(Actor actor) throws SQLException;

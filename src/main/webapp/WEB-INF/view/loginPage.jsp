@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/moviePage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/infoPage.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/poster.css">
     <script src="${pageContext.servletContext.contextPath}/resources/bootstrap/js/jquery-3.4.1.js"></script>

@@ -16,7 +16,8 @@
                         <form:errors path="login" style="max-height: 35px; margin-left: 10px; padding: 10px"
                                      class="alert-danger"/>
                         <c:if test="${loginExist}">
-                            <p style="max-height: 35px; margin-left: 10px; padding: 10px" class="alert-danger">Такой логин уже есть</p>
+                            <p style="max-height: 35px; margin-left: 10px; padding: 10px" class="alert-danger">Такой
+                                логин уже есть</p>
                         </c:if>
                     </div>
                 </div>
@@ -52,7 +53,8 @@
                         <form:errors path="password" style="max-height: 35px; margin-left: 10px; padding: 10px"
                                      class="alert-danger"/>
                         <c:if test="${passwordMismatch}">
-                            <p style="max-height: 35px; margin-left: 10px; padding: 10px" class="alert-danger">Пароли не совпадают</p>
+                            <p style="max-height: 35px; margin-left: 10px; padding: 10px" class="alert-danger">Пароли не
+                                совпадают</p>
                         </c:if>
                     </div>
                 </div>
@@ -73,8 +75,6 @@
             </form:form>
         </article>
     </div>
-    <!-- card.// -->
-
     </div>
 
 

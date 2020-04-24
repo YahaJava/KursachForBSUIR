@@ -12,9 +12,6 @@
                         Купить Билет
                     </button>
                 </form>
-                    <%--<div class="header-button">
-                        <a class="link-header" href="${pageContext.servletContext.contextPath}/buy/${movie.id}">Купить билет</a>
-                    </div>--%>
             </div>
             <div class="info-container">
                 <div class="name">
