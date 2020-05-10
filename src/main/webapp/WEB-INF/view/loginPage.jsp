@@ -59,6 +59,9 @@
                         <div class="col-sm-6 controls">
                             <button type="submit" class="btn btn-success">Вход</button>
                         </div>
+                        <div class="col-sm-6 controls">
+                            Нет аккаунта, <a href="${pageContext.servletContext.contextPath}/registration">зарегистрируйтесь</a>
+                        </div>
                     </div>
                 </form:form>
             </div>

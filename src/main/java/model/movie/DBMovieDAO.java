@@ -42,36 +42,4 @@ public class DBMovieDAO implements MovieDAO {
     }
 
 
-    @Override
-    public List<Movie> getMoviesInNoneRent() throws SQLException {
-        return null;
-    }
-
-    @Override
-    public List<Movie> getAllMovies() throws SQLException {
-    return  null;
-    }
-
-    @Override
-    public List<Movie> getMoviesOnActors(Actor actor) throws SQLException {
-        return null;
-    }
-
-    @Override
-    public List<Movie> searchMovies(String searchParameter) throws SQLException {
-        List<Movie> movies = getAllMovies();
-        searchParameter = searchParameter.toLowerCase();
-        String finalSearchParameter = searchParameter;
-        movies = movies.stream()
-                .filter(movie -> movie.getName().toLowerCase().contains(finalSearchParameter))
-                .collect(Collectors.toList());
-        return movies;
-    }
-
-    @Override
-    public void updateRent(ArrayList<String> list1, ArrayList<String> list2) throws SQLException {
-
-    }
-
-
 }

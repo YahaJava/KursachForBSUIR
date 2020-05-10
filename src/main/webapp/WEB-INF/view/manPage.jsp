@@ -6,7 +6,7 @@
     <div>
         <div class="container">
             <div class="image-container">
-                <img src="${man.photo}" style="width:250px; height:350px">
+                <img src="${man.photo}" style="width:250px; height:360px">
             </div>
             <div class="info-container">
                 <div class="name">

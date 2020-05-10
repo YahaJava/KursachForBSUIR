@@ -168,7 +168,7 @@
         <div style="display: flex;">
             <div class="form-group col-md-2">
                 <label for="amount">Кол-во мест:</label>
-                <select id="amount" onchange="swap()" class="form-control">
+                <select id="amount" style = "height: 30px" onchange="swap()" class="form-control">
                     <option selected>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -198,7 +198,7 @@
                 </c:forEach>
             </div>
             <div>
-                <img style="margin-left: 60px" src="../../resources/images/seat.png"/> Свободно
+                <img style="margin-left: 30px" src="../../resources/images/seat.png"/> Свободно
                 <img style="margin-left: 10px" src="../../resources/images/choosen-seat.png"/> Выбрано
                 <img style="margin-left: 10px" src="../../resources/images/invalid-seat.png"/> Занято
             </div>
